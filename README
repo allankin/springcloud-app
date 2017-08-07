@@ -1,0 +1,13 @@
+基于SpringCloud的项目结构；
+config-client：
+配置客户端（实际上应该没有）；
+
+config-server: 配置中心
+
+
+register-center: 注册中心
+
+
+user-service: 用户服务
+
+
