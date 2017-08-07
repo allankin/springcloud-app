@@ -1,0 +1,59 @@
+# HTTP Server
+server:
+#  context-path: /users
+  port: 8080   # HTTP (Tomcat) port
+
+# Spring properties
+spring:
+  application:
+     name: user-service
+  cloud:
+    services:
+      registrationMethod: route
+
+---
+eureka:
+  instance:
+    prefer-ip-address: true
+    #instance-id: ${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka
+---
+
+spring:
+  profiles: dev
+---
+security:
+  basic:
+    enabled: false
+
+---
+
+# Logging
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+
+#---
+# Discovery Server Access
+#eureka:
+#  instance:
+#    hostname: localhost
+#    leaseRenewalIntervalInSeconds: 10
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#      healthcheck:
+#        enabled: true
+#    region: default
+#    registryFetchIntervalSeconds: 5
+#    availabilityZones:
+#      default: ${APPLICATION_DOMAIN:${DOMAIN:defaultZone}}
+
+
+# Endpoint setup
+#endpoints:
+#  restart:
+#    enabled: true
