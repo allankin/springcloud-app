@@ -3,7 +3,12 @@ server:
 spring:
   application:
     name: registry-server
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    #registerWithEureka: false
+    #fetchRegistry: false
 ---
 # Discovery Server Access
 #eureka:
